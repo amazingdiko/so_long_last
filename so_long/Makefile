@@ -1,67 +1,56 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#              #
-#    Updated: 2022/01/22 21:24:11 by wmozella         ###   ########.fr        #
+#    Updated: 2022/01/28 23:04:03 by wmozella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =			so_long
 
-HEAD =			so_long.h
-
-LIBDIR = 		./libft/
-
-LIBFT = 		libft.a
-
-#HEAD_BONUS =	so_long_bonus.h
-
-SRC = 			so_long.c
+SRCS = 			check_map_a.c	check_map_b.c	ft_split.c	get_next_line.c 	main.c 	move_charecter.c \
+				render.c 
 
 #SRC_BONUS =		
 
-OBJ =			$(SRC:%.c=%.o)
+OBJS = $(SRCS:.c=.o)
 
-OBJ_BONUS =		$(SRC_BONUS:%.c=%.o)
+OBJS_B = $(SRCS_B:.c=.o)
 
-D =				$(SRC:%.c=%.d)
+LINKS = -lmlx -framework OpenGL -framework AppKit
 
-D_BONUS =		$(SRC_BONUS:%.c=%.d)
+HEADER	=	mandatory/so_long.h
 
-CFLAGS = 		-Wall -Werror -Wextra -MD -I./libft/
+HEADER_B	=	bonus/so_long.h
 
-CC = 			gcc
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
+MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit
+RM			=	rm -f
 
-RM = 			rm -f
+all:		$(NAME)
 
-all : 			libmake $(NAME)
+$(NAME):	$(OBJS)
+			$(CC) $(SRCS) $(MLXFLAGS) $(CFLAGS) -o $(NAME)
 
-$(NAME) : 		$(OBJ)
-				@cp $(LIBDIR)$(LIBFT) .
-				$(CC) $(CFLAGS) $(OBJ) libft.a -lmlx -framework OpenGL -framework AppKit -o $@
+$(NAME_B):	$(OBJS_B)
+			$(CC) $(SRCS_B) $(MLXFLAGS) $(CFLAGS) -o $(NAME_B)
 
-libmake :
-				@make -C $(LIBDIR)
+%o:			%.c
+			$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
-%.o : 			%.c
-				$(CC) $(CFLAGS) -Imlx -I $(HEAD) -c $< -o $@
-
-include 		$(wildcard $(D) $(D_BONUS))
-
-bonus:
-				@make OBJ="$(OBJ_BONUS)" HEAD="$(HEAD_BONUS)" all
+bonus:		$(NAME_B)
 
 clean:
-				@make clean -C $(LIBDIR)
-				@$(RM) $(OBJ) $(D) $(D_BONUS) $(OBJ_BONUS)
+			$(RM) $(OBJS) $(OBJS_B)
 
-fclean: 		clean
-				@$(RM) $(NAME) $(LIBFT)
+fclean:		clean
+			$(RM) $(NAME) $(NAME_B)
 
-re: 			fclean all
+re:			fclean all
 
-.PHONY: 		all clean fclean re bonus
+.PHONY:		all clean fclean re

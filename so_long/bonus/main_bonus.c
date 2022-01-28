@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:58:22 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 20:43:32 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/28 21:53:12 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 void	ft_free_map(t_vars *vars)
 {
@@ -36,10 +36,17 @@ int	ft_frame(t_vars *vars)
 {
 	mlx_clear_window (vars->mlx, vars->win);
 	ft_find(vars);
-	if (vars->ok == 1 && vars->count_c == 0)
+	ft_print_moves(vars);
+	if (vars->ok == 1 && vars->count_c == 0 && vars->lose != 1)
 	{
 		mlx_clear_window(vars->mlx, vars->win);
 		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img_win,
+			50, 50);
+	}
+	else if (vars->lose == 1 && vars->ok != 1)
+	{
+		mlx_clear_window(vars->mlx, vars->win);
+		mlx_put_image_to_window(vars->mlx, vars->win, vars->img->img_lose,
 			50, 50);
 	}
 	return (0);
@@ -58,7 +65,7 @@ int	main(int argc, char **argv)
 			exit (EXIT_FAILURE);
 		line = get_next_line(vars.fd);
 		vars.map = ft_split(line, '\n', &vars);
-		ft_check(&vars);
+		ft_check(argv[1], &vars);
 		vars.size = 40;
 		vars.win = mlx_new_window(vars.mlx, (vars.size * vars.length),
 				(vars.size * vars.width), "wmozella");
