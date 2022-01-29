@@ -6,19 +6,19 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 21:21:55 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 20:11:20 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 # define BUFFER_SIZE 100000
-# define WALL "../pictures/wall.xpm"
-# define FREE "../pictures/empty.xpm"
-# define COIN "../pictures/coin.xpm"
-# define PLAYER "../pictures/player.xpm"
-# define EXIT "../pictures/exit.xpm"
-# define WIN "../pictures/win.xpm"
+# define WALL "pictures/wall.xpm"
+# define FREE "pictures/empty.xpm"
+# define COIN "pictures/coin.xpm"
+# define PLAYER "pictures/player.xpm"
+# define EXIT "pictures/exit.xpm"
+# define WIN "pictures/win.xpm"
 # define ESC 53
 # define D 2
 # define W 13
@@ -76,10 +76,10 @@ void			ft_free_map(t_vars *vars);
 void			ft_win(t_vars *vars);
 void			ft_check_pictures(t_vars *vars, int x, int y);
 void			ft_check_lines(t_vars *vars);
-void			ft_check(t_vars *vars);
+void			ft_check(char *argv_1, t_vars *vars);
 void			ft_check_names(t_vars *vars);
 void			ft_check_wall_1(t_vars *vars);
 void			ft_check_wall_2(t_vars *vars);
-void			check_map_name(char *argv_1, int d, int q, int k);
+void			check_map_name(char *argv_1);
 
 #endif 

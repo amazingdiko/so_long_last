@@ -6,22 +6,22 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 22:23:19 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 18:56:25 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 # define BUFFER_SIZE 100000
-# define WALL "../pictures/wall.xpm"
-# define FREE "../pictures/empty.xpm"
-# define COIN "../pictures/coin.xpm"
-# define PLAYER "../pictures/player.xpm"
-# define EXIT "../pictures/exit.xpm"
-# define OPEN_EXIT "../pictures/open_exit.xpm"
-# define WIN "../pictures/win.xpm"
-# define LOSE "../pictures/lose.xpm"
-# define ENEMY "../pictures/enemy.xpm"
+# define WALL "pictures/wall.xpm"
+# define FREE "pictures/empty.xpm"
+# define COIN "pictures/coin.xpm"
+# define PLAYER "pictures/player.xpm"
+# define EXIT "pictures/exit.xpm"
+# define OPEN_EXIT "pictures/open_exit.xpm"
+# define WIN "pictures/win.xpm"
+# define LOSE "pictures/lose.xpm"
+# define ENEMY "pictures/enemy.xpm"
 # define ESC 53
 # define D 2
 # define W 13
@@ -97,7 +97,7 @@ void			ft_check(char *argv_1, t_vars *vars);
 void			ft_check_names(t_vars *vars);
 void			ft_check_wall_1(t_vars *vars);
 void			ft_check_wall_2(t_vars *vars);
-void			check_map_name(char *argv_1, int d, int q, int k);
+void			check_map_name(char *argv_1);
 void			ft_print_moves(t_vars *vars);
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 20:28:23 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 20:23:20 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 20:17:52 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_print_moves(t_vars *vars)
 	step = ft_itoa(vars->steps);
 	all_steps = ft_strjoin("Moves: ", step);
 	mlx_string_put(vars->mlx, vars->win, 0,
-		(vars->width - 1) * 40 + 10, 0xFFFFFF, all_steps);
+		(vars->width - 2) * 40 + 10, 0xFFFFFF, all_steps);
 	free (step);
 	free (all_steps);
 }

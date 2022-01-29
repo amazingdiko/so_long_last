@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:17:27 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 21:21:01 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 19:16:04 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,32 +50,30 @@ void	ft_check_wall_2(t_vars *vars)
 	}
 }
 
-void	check_map_name(char *argv_1, int d, int q, int k)
+void	check_map_name(char *argv_1)
 {
 	int		i;
+	int		j;
+	int		k;
 	char	*str;
 
-	i = ft_strlen(argv_1);
+	i = 0;
+	j = ft_strlen(argv_1) - 1;
+	k = 4;
 	str = malloc(sizeof(char *) * 5);
-	while (argv_1[d])
+	if (str == NULL)
+		return ;
+	while (i < k)
 	{
-		if (argv_1[d] == '.')
-			q += 1;
-		d++;
+		str[i] = argv_1[j];
+		i++;
+		j--;
 	}
-	d = 0;
-	while (d < 4)
+	if (str[3] != '.' || str[2] != 'b' || str[1] != 'e'
+		|| str[0] != 'r')
 	{
-		str[k] = argv_1[i - 1];
-		d++;
-		k--;
-		i--;
+		printf("Error\nWRONG EXT\n");
+		exit(EXIT_FAILURE);
 	}
-	if (str[0] != '.' && str[1] != 'b' && str[2] != 'e'
-		&& str[3] != 'r' && q != 1)
-	{
-		printf("Error! Wrong map name!\n");
-		exit (EXIT_FAILURE);
-	}
-	free(str);
+	free (str);
 }

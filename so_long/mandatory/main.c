@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:58:22 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 20:43:32 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 20:13:04 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	main(int argc, char **argv)
 			exit (EXIT_FAILURE);
 		line = get_next_line(vars.fd);
 		vars.map = ft_split(line, '\n', &vars);
-		ft_check(&vars);
-		vars.size = 40;
+		ft_check(argv[1], &vars);
+		vars.size = 32;
 		vars.win = mlx_new_window(vars.mlx, (vars.size * vars.length),
 				(vars.size * vars.width), "wmozella");
 		vars.steps = 0;

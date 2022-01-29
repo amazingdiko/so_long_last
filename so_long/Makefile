@@ -6,51 +6,62 @@
 #    By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#              #
-#    Updated: 2022/01/28 23:04:03 by wmozella         ###   ########.fr        #
+#    Updated: 2022/01/29 20:44:28 by wmozella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =			so_long
+NAME = so_long
 
-SRCS = 			check_map_a.c	check_map_b.c	ft_split.c	get_next_line.c 	main.c 	move_charecter.c \
-				render.c 
+SRC = mandatory/check_map_a.c\
+	mandatory/check_map_b.c\
+	mandatory/ft_split.c\
+	mandatory/main.c\
+	mandatory/get_next_line.c\
+	mandatory/move_charecter.c\
+	mandatory/render.c\
 
-#SRC_BONUS =		
+SRC_BONUS = bonus/print_moves_bonus.c\
+	bonus/get_next_line_bonus.c\
+	bonus/render_bonus.c\
+	bonus/move_charecter_bonus.c\
+	bonus/check_map_a_bonus.c\
+	bonus/ft_split_bonus.c\
+	bonus/check_map_b_bonus.c\
+	bonus/main_bonus.c\
 
-OBJS = $(SRCS:.c=.o)
+HDRS = mandatory/so_long.h
 
-OBJS_B = $(SRCS_B:.c=.o)
+HDRS_BONUS = bonus/so_long_bonus.h
 
-LINKS = -lmlx -framework OpenGL -framework AppKit
+OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
-HEADER	=	mandatory/so_long.h
+OBJ = $(SRC:.c=.o)
 
-HEADER_B	=	bonus/so_long.h
+CC = cc
 
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
-MLXFLAGS	=	-lmlx -framework OpenGL -framework AppKit
-RM			=	rm -f
+FLAGS = -Wall -Wextra -Werror
 
-all:		$(NAME)
+MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
-$(NAME):	$(OBJS)
-			$(CC) $(SRCS) $(MLXFLAGS) $(CFLAGS) -o $(NAME)
+all: $(NAME)
 
-$(NAME_B):	$(OBJS_B)
-			$(CC) $(SRCS_B) $(MLXFLAGS) $(CFLAGS) -o $(NAME_B)
+$(NAME): $(OBJ) $(HDRS)
+		make -C mlx
+		$(CC) $(FLAGS) $(MLX_FLAGS) -I mlx $(OBJ) -I. -o $(NAME)
 
-%o:			%.c
-			$(CC) $(CFLAGS) -Imlx -c $< -o $@
-
-bonus:		$(NAME_B)
+bonus: $(OBJ_BONUS) $(HDRS_BONUS)
+		make -C mlx
+		$(CC) $(FLAGS) $(MLX_FLAGS) -I mlx $(OBJ_BONUS) -I. -o $(NAME)
 
 clean:
-			$(RM) $(OBJS) $(OBJS_B)
+		make clean -C mlx
+		rm -f $(OBJ_BONUS)
+		rm -f $(OBJ)
 
-fclean:		clean
-			$(RM) $(NAME) $(NAME_B)
+fclean: clean
+		rm -f $(NAME_BONUS)
+		rm -f $(NAME)
 
-re:			fclean all
+re:		fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean

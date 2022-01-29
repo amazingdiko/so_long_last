@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:17:27 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/28 21:21:36 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 20:10:51 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_check_pictures(t_vars *vars, int x, int y)
 		}
 		x ++;
 	}
-	if (vars->count_e == 0 || vars->count_e > 1 || vars->count_c == 0
+	if (vars->count_e == 0 || vars->count_e < 1 || vars->count_c == 0
 		|| vars->count_char > 1 || vars->count_char == 0)
 	{
 		printf ("Error! Too much set of chars!\n");
@@ -83,7 +83,7 @@ void	ft_check_names(t_vars *vars)
 	}
 }
 
-void	ft_check(t_vars *vars)
+void	ft_check(char *argv_1, t_vars *vars)
 {
 	int	x;
 	int	y;
@@ -93,4 +93,5 @@ void	ft_check(t_vars *vars)
 	ft_check_names(vars);
 	ft_check_wall_1(vars);
 	ft_check_wall_2(vars);
+	check_map_name(argv_1);
 }
