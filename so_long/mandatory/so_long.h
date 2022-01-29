@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/29 20:11:20 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 22:39:42 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void			ft_read(int fd, int *ret, char *buf, int x);
 int				ft_strlen(const char *s);
 char			*ft_substr(char *s, int start, size_t len);
 char			**ft_split(char const *s, char c, t_vars *vars);
-static char		**ft_strret(char *str, char **malloc_str, char c, t_vars *vars);
 int				ft_find(t_vars *vars);
 void			ft_img_render(t_vars *vars, int x, int y);
 void			ft_inizialization(t_vars *vars);

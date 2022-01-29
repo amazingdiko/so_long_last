@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/17 17:17:27 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/20 19:58:47 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 22:34:09 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ char	**ft_split(char const *s, char c, t_vars *vars)
 {
 	char	*str;
 	char	**malloc_str;
-	int		i;
 
 	if (!s)
 		return (NULL);

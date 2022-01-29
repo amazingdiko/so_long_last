@@ -6,7 +6,7 @@
 #    By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/18 20:28:23 by wmozella          #+#    #+#              #
-#    Updated: 2022/01/29 20:44:28 by wmozella         ###   ########.fr        #
+#    Updated: 2022/01/29 22:38:37 by wmozella         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ OBJ = $(SRC:.c=.o)
 
 CC = cc
 
-FLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 MLX_FLAGS = -L mlx -l mlx -framework OpenGL -framework AppKit
 
@@ -47,11 +47,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ) $(HDRS)
 		make -C mlx
-		$(CC) $(FLAGS) $(MLX_FLAGS) -I mlx $(OBJ) -I. -o $(NAME)
+		$(CC) $(CFLAGS) $(MLX_FLAGS) -I mlx $(OBJ) -I. -o $(NAME)
 
 bonus: $(OBJ_BONUS) $(HDRS_BONUS)
 		make -C mlx
-		$(CC) $(FLAGS) $(MLX_FLAGS) -I mlx $(OBJ_BONUS) -I. -o $(NAME)
+		$(CC) $(CFLAGS) $(MLX_FLAGS) -I mlx $(OBJ_BONUS) -I. -o $(NAME)
 
 clean:
 		make clean -C mlx

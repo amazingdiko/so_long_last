@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:17:27 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/29 19:14:09 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 22:14:52 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_check_pictures(t_vars *vars, int x, int y)
 	if (vars->count_enemy == 0 || vars->count_enemy < 1 || vars->count_c == 0
 		|| vars->count_char > 1 || vars->count_char == 0 || vars->count_e < 1)
 	{
-		printf ("Error! Too much set of chars!\n");
+		printf ("Error!\n Too much set of chars!\n");
 		exit (EXIT_FAILURE);
 	}
 }
@@ -51,7 +51,7 @@ void	ft_check_lines(t_vars *vars)
 	{
 		if (len != (int)ft_strlen(vars->map[x]))
 		{
-			printf ("Error! Wrong set lines!\n");
+			printf ("Error!\n Wrong set lines!\n");
 			exit (EXIT_FAILURE);
 		}
 		x ++;
@@ -73,7 +73,7 @@ void	ft_check_names(t_vars *vars)
 				&& vars->map[x][y] != 'C' && vars->map[x][y] != 'E'
 					&& vars->map[x][y] != 'P' && vars->map[x][y] != 'A')
 			{
-				printf ("Wrong number of charecters!\n");
+				printf ("Error!\nWrong number of charecters!\n");
 				exit (EXIT_FAILURE);
 			}
 			y ++;
@@ -104,7 +104,7 @@ void	check_map_name(char *argv_1)
 	if (str[3] != '.' || str[2] != 'b' || str[1] != 'e'
 		|| str[0] != 'r')
 	{
-		printf("Error\nWRONG EXT\n");
+		printf("Error!\nWRONG EXT!\n");
 		exit(EXIT_FAILURE);
 	}
 	free (str);

@@ -6,7 +6,7 @@
 /*   By: wmozella <wmozella@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/26 17:17:27 by wmozella          #+#    #+#             */
-/*   Updated: 2022/01/29 20:10:51 by wmozella         ###   ########.fr       */
+/*   Updated: 2022/01/29 22:33:09 by wmozella         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,8 @@ void	ft_check(char *argv_1, t_vars *vars)
 	int	x;
 	int	y;
 
+	x = 0;
+	y = 0;
 	ft_check_pictures(vars, x, y);
 	ft_check_lines(vars);
 	ft_check_names(vars);
